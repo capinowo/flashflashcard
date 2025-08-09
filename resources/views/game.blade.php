@@ -1,24 +1,73 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-center">
-        <p style="color: white; font-weight: bold;">Score: {{ $score }}</p>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-        <img src="{{ asset($question['image']) }}" class="img-fluid mb-3" style="max-height: 200px;" alt="Flashcard Image">
+    body {
+        background-color: #fddad3; /* warna latar luar */
+    }
 
-        <form method="POST" action="{{ route('game.answer') }}">
-            @csrf
-            <input type="hidden" name="topic" value="{{ $topic }}">
+    .game-container {
+        background-color: #f9a58c; /* warna kotak */
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
+        max-width: 350px;
+        margin: auto;
+        text-align: center;
+    }
 
-            <div class="row g-2">
-                @foreach ($question['choices'] as $choice)
-                    <div class="col-6">
-                        <button type="submit" name="answer" value="{{ $choice }}" class="btn btn-light w-100">
-                            {{ $choice }}
-                        </button>
-                    </div>
-                @endforeach
-            </div>
-        </form>
-    </div>
+    .score-text {
+        font-family: 'Press Start 2P', cursive;
+        color: white;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .flashcard-image {
+        max-width: 180px;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .choice-btn {
+        background-color: #f47e74;
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 0.7rem;
+        color: black;
+        width: 100%;
+    }
+
+    .choice-btn:hover {
+        background-color: #e06b66;
+    }
+
+    .choice-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+</style>
+
+<div class="game-container">
+    <p class="score-text">Score: {{ $score }}</p>
+
+    <img src="{{ asset($question['image']) }}" class="flashcard-image" alt="Flashcard Image">
+
+    <form method="POST" action="{{ route('game.answer') }}">
+        @csrf
+        <input type="hidden" name="topic" value="{{ $topic }}">
+
+        <div class="choice-grid">
+            @foreach ($question['choices'] as $choice)
+                <button type="submit" name="answer" value="{{ $choice }}" class="choice-btn">
+                    {{ $choice }}
+                </button>
+            @endforeach
+        </div>
+    </form>
+</div>
 @endsection

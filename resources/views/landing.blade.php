@@ -6,18 +6,24 @@
 
         .game-title {
             font-family: 'Press Start 2P', cursive;
-            font-size: 1rem;
+            font-size: 2.5rem; /* lebih besar dari sebelumnya */
             color: white;
             text-align: center;
             line-height: 1.5;
             margin-bottom: 2rem;
         }
 
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .btn-big {
-            display: block;
-            width: 100%;
+            width: 250px; /* panjang sama */
             padding: 1rem;
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             font-family: 'Press Start 2P', cursive;
             text-align: center;
             border-radius: 12px;
@@ -28,7 +34,6 @@
             background-color: white;
             color: #F9A58C;
             border: none;
-            margin-bottom: 1rem;
         }
 
         .btn-outline {
@@ -48,11 +53,13 @@
         Card!
     </h2>
 
-    <form action="/topics" method="get">
-        <button type="submit" class="btn-big btn-primary">Mulai</button>
-    </form>
+    <div class="btn-container">
+        <form action="/topics" method="get">
+            <button type="submit" class="btn-big btn-primary">Mulai</button>
+        </form>
 
-    <form action="/tutorial" method="get">
-        <button type="submit" class="btn-big btn-outline">Lihat Tutorial</button>
-    </form>
+        <form action="/tutorial" method="get">
+            <button type="submit" class="btn-big btn-outline">Lihat Tutorial</button>
+        </form>
+    </div>
 @endsection
