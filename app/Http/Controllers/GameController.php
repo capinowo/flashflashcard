@@ -112,6 +112,102 @@ class GameController extends Controller
         ],
     ];
 
+    protected $translations = [
+        // activities
+        'Bathing' => 'Mandi',
+        'Dancing' => 'Menari',
+        'Eating' => 'Makan',
+        'Reading' => 'Membaca',
+        'Running' => 'Berlari',
+        'Singing' => 'Bernyanyi',
+        'Sleeping' => 'Tidur',
+        'Writing' => 'Menulis',
+        'Cooking' => 'Memasak',
+        'Playing' => 'Bermain',
+
+        // body
+        'Ear' => 'Telinga',
+        'Eye' => 'Mata',
+        'Feet' => 'Kaki',
+        'Fingernail' => 'Kuku',
+        'Hand' => 'Tangan',
+        'Head' => 'Kepala',
+        'Nose' => 'Hidung',
+        'Teeth' => 'Gigi',
+        'Tongue' => 'Lidah',
+        'Hair' => 'Rambut',
+
+        // color
+        'Black' => 'Hitam',
+        'Blue' => 'Biru',
+        'Gold' => 'Emas',
+        'Green' => 'Hijau',
+        'Orange' => 'Oranye',
+        'Purple' => 'Ungu',
+        'Red' => 'Merah',
+        'Silver' => 'Perak',
+        'White' => 'Putih',
+        'Yellow' => 'Kuning',
+
+        // fruit
+        'Coconut' => 'Kelapa',
+        'Grape' => 'Anggur',
+        'Guava' => 'Jambu Biji',
+        'Mangosteen' => 'Manggis',
+        'Melon' => 'Melon',
+        'Rambutan' => 'Rambutan',
+        'Watermelon' => 'Semangka',
+        'Banana' => 'Pisang',
+        'Apple' => 'Apel',
+
+        // home
+        'Bed' => 'Tempat Tidur',
+        'Chair' => 'Kursi',
+        'Desk' => 'Meja',
+        'Lamp' => 'Lampu',
+        'Mirror' => 'Cermin',
+        'Pillow' => 'Bantal',
+        'Refrigerator' => 'Kulkas',
+        'TV' => 'Televisi',
+        'Window' => 'Jendela',
+        'Sofa' => 'Sofa',
+
+        // school
+        'Backpack' => 'Tas Ransel',
+        'Book' => 'Buku',
+        'Eraser' => 'Penghapus',
+        'Marker' => 'Spidol',
+        'Pencil' => 'Pensil',
+        'Wall Clock' => 'Jam Dinding',
+        'Whiteboard' => 'Papan Tulis Putih',
+        'Paper Clip' => 'Penjepit Kertas',
+        'Calendar' => 'Kalender',
+        'Scissor' => 'Gunting',
+
+        // vegetables
+        'Broccoli' => 'Brokoli',
+        'Cabbage' => 'Kubis',
+        'Carrot' => 'Wortel',
+        'Cucumber' => 'Mentimun',
+        'Eggplant' => 'Terong',
+        'Onion' => 'Bawang',
+        'Tomato' => 'Tomat',
+        'Cassava' => 'Singkong',
+        'Mushroom' => 'Jamur',
+        'Paprika' => 'Paprika',
+
+        // weather
+        'Cloudy' => 'Berawan',
+        'Overcast' => 'Mendung Tebal',
+        'Rainbow' => 'Pelangi',
+        'Rainy' => 'Hujan',
+        'Snowy' => 'Bersalju',
+        'Stormy' => 'Badai',
+        'Sunny' => 'Cerah',
+        'Thunder' => 'Guntur',
+        'Windy' => 'Berangin',
+    ];
+
 
     public function show($topic)
     {
@@ -133,9 +229,11 @@ class GameController extends Controller
 
         return view('game', [
             'question' => $question,
-            'topic' => $topic,
-            'score' => $score
+            'translations' => $this->translations,
+            'score' => $score,
+            'topic' => $topic
         ]);
+
     }
 
 
