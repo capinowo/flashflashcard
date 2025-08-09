@@ -6,7 +6,7 @@
     <form action="/start" method="POST" style="width: 100%; margin-top: 1.5rem;">
         @csrf
         <div style="display: flex; flex-direction: column; gap: 10px;">
-            @foreach (['fruit', 'color', 'house', 'school', 'weather', 'activity', 'vegetable', 'body'] as $topic)
+            @foreach (['fruit', 'color', 'home', 'school', 'weather', 'activities', 'vegetables', 'body'] as $topic)
                 <button type="submit" name="topic" value="{{ $topic }}" 
                     style="padding: 0.75rem; background-color: white; border: none; border-radius: 10px; color: #F9A58C; font-weight: bold;">
                     {{ ucfirst($topic) }}
